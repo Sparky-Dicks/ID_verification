@@ -23,10 +23,8 @@ def get_number(list_numbers, str_id):
             # print("Total:", total)
             # print(list_numbers[i])
             if total > 9:
-                print("Too big: ", total)
                 total = (total//10) + (total%10)
             list_numbers[i] = total
-            print("Index: ", list_numbers[i])
             tester += int(list_numbers[i])
         else:
             # tester += int(list_numbers[i])
@@ -34,31 +32,31 @@ def get_number(list_numbers, str_id):
         # print("The List:", list_numbers)
         i+=1
     new_int = int(convert_list(list_numbers))//10
-    print("Tester: ", tester)
     return tester
 
 
 def validate_id_math(id_number, str_id):
     final_answer = (id_number%10)
-    print(final_answer)
     check_this_num = get_number(id_number, str_id)
-    print(((check_this_num*9)%10),final_answer)
+    # print(((check_this_num*9)%10), final_answer, check_this_num*9)
     if ((check_this_num*9)%10) == final_answer:
         # print("***")
-        return True
+        return False
     else:
         # print("**")
-        return False
+        return True
 
 
 def validate_id_main(id_num):
     id_num_str = str(id_num)
+    # print(id_num_str)
     while len(id_num_str) != 13:
-        print("Check", id_num_str)
+        if len(id_num_str) > 13:
+            print("PLease enter a valid ID number")
+            return get_input()
         id_num_str = "0" + str(id_num_str)
-    print(id_num_str, "***")
     if id_num_str[12]=="0" or validate_id_math(id_num, id_num_str):
-        print("PLease enter a valid ID number")
+        print("Please enter a valid ID number*")
         return get_input()
     else:
         return id_num_str
