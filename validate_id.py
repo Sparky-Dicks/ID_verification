@@ -15,9 +15,10 @@ def convert_list(list):
 
 def get_number(list_numbers, str_id):
     tester = 0
+    total = 0
     list_numbers = [x for x in str_id]
     i = 0
-    while i < 13:
+    while i < 12:
         if i%2!=0:
             total = int(list_numbers[i])*2
             # print("Total:", total)
@@ -27,11 +28,13 @@ def get_number(list_numbers, str_id):
             list_numbers[i] = total
             tester += int(list_numbers[i])
         else:
-            # tester += int(list_numbers[i])
+            tester += int(list_numbers[i])
             list_numbers[i] = int(list_numbers[i])
+        # print("***", total, "*****", list_numbers)
         # print("The List:", list_numbers)
         i+=1
     new_int = int(convert_list(list_numbers))//10
+    # print(tester)
     return tester
 
 
@@ -43,7 +46,7 @@ def validate_id_math(id_number, str_id):
         # print("***")
         return False
     else:
-        # print("**")
+        print("Check", check_this_num, final_answer)
         return True
 
 
@@ -64,4 +67,4 @@ def validate_id_main(id_num):
 
 if __name__ == "__main__":
     id_num = get_input()
-    print("Valid ID: ", id_num)
+    print("Valid ID:", id_num)
